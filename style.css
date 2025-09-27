@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: gilroy;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(177, 204, 228);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3em;
+    position: relative;
+}
+
+span {
+    font-size: 0.60em;
+}
+
+#keyboard {
+    height: 450px;
+    width: 100%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    padding: 0 2em 2em 2em;
+    gap: 8px;
+    border-radius: 50px;
+    background-image: url(/texture.jpg);
+    background-size: cover;
+    background-position: top;
+}
+
+.key {
+    background-color: #ffffffb5;
+    font-size: 1.5em;
+    width: 2em;
+    height: 14em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0.5em;
+    border-radius: 10px;
+    transition: scale ease 0.3s;
+    user-select: none;
+    text-transform: uppercase;
+}
+
+.black {
+    background-color: rgb(6, 6, 6);
+    font-size: 1.5em;
+    color: white;
+    display: flex;
+    height: 8em;
+    width: 2em;
+    margin: 0 -29px ;
+    padding: 0.5em;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 10px;
+    transition: scale ease 0.3s;
+    user-select: none;
+    z-index: 2;
+    text-transform: uppercase;
+}
+
+.key.active {
+  scale: 0.97;
+  box-shadow: 5px 5px 10px rgba(9, 59, 146, 0.403);
+}
+
+.key.active span {
+  color: skyblue;
+}
+
+.white:active {
+    scale: 0.97;
+    box-shadow: 5px 5px 10px rgba(9, 59, 146, 0.403);
+}
+
+.white:active span {
+    color: skyblue;
+}
+
+.black:active {
+    scale: 0.97;
+    box-shadow: 5px 5px 10px rgba(9, 59, 146, 0.403);
+}
+
+.black:active span {
+    color: skyblue;
+}
