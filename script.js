@@ -1,60 +1,74 @@
-const keys = document.querySelectorAll('.key');
-const audio = new Audio();
+// Map each keyboard key to one piano note
+const KEY_MAP = {
+  z: "C1",
+  s: "Db1", // instead of C#1
+  x: "D1",
+  d: "Eb1", // instead of D#1
+  c: "E1",
+  v: "F1",
+  g: "Gb1", // instead of F#1
+  b: "G1",
+  h: "Ab1", // instead of G#1
+  n: "A1",
+  j: "Bb1", // instead of A#1
+  m: "B1",
 
-// Notes per octave
-const octaveNotes = ["c", "c#", "d", "d#", "e", "f", "f#", "g", "g#", "a", "a#", "b"];
+  // Octave 2
+  q: "C2",
+  2: "Db2",
+  w: "D2",
+  3: "Eb2",
+  e: "E2",
+  r: "F2",
+  5: "Gb2",
+  t: "G2",
+  6: "Ab2",
+  y: "A2",
+  7: "Bb2",
+  u: "B2",
 
-// Sharp → Flat conversion for filenames
-const sharpToFlat = {
-  "c#": "Db",
-  "d#": "Eb",
-  "f#": "Gb",
-  "g#": "Ab",
-  "a#": "Bb"
+  // Octave 3
+  i: "C3",
+  9: "Db3",
+  o: "D3",
+  0: "Eb3",
+  p: "E3",
+  "[": "F3",
+  "=": "Gb3",
+  "]": "G3",
+  "\\": "Ab3",
+  ";": "A3",
+  "'": "Bb3",
+  "/": "B3"
 };
 
-// Build a mapping for 36 keys (C1–B3)
-const noteMap = {};
-let octave = 4;
 
-for (let i = 0; i < 36; i++) {
-  const note = octaveNotes[i % 12];
-  if (i % 12 === 0 && i !== 0) octave++; // shift octave every 12 keys
+const keys = document.querySelectorAll(".key");
 
-  if (sharpToFlat[note]) {
-    noteMap[i] = sharpToFlat[note] + octave + ".mp3"; // e.g. Db1.mp3
-  } else {
-    noteMap[i] = note.toUpperCase() + octave + ".mp3"; // e.g. C1.mp3
+// 🎹 Click support
+keys.forEach(key => {
+  key.addEventListener("click", () => playNote(key));
+});
+
+// 🎹 Keyboard support
+document.addEventListener("keydown", e => {
+  if (e.repeat) return; // ignore holding key down
+  const note = KEY_MAP[e.key];
+  if (note) {
+    const keyElement = document.querySelector(`.key[data-note="${note}"]`);
+    if (keyElement) playNote(keyElement);
   }
+});
+
+function playNote(keyElement) {
+  const noteAudio = document.getElementById(keyElement.dataset.note);
+  if (!noteAudio) return;
+
+  noteAudio.currentTime = 0;
+  noteAudio.play();
+  keyElement.classList.add("active");
+
+  noteAudio.addEventListener("ended", () => {
+    keyElement.classList.remove("active");
+  });
 }
-
-// Function to play tune
-const playTune = (index) => {
-  const file = noteMap[index];
-  if (!file) return;
-
-  audio.src = "tunes/" + file; 
-  audio.play();
-
-  // highlight clicked key
-  keys[index].classList.add("active");
-  setTimeout(() => keys[index].classList.remove("active"), 200);
-};
-
-// Click listener
-keys.forEach((key, index) => {
-  key.addEventListener('click', () => playTune(index));
-});
-
-// Keyboard listener (optional)
-// You can map physical keys to piano keys here
-document.addEventListener('keydown', (e) => {
-  // Example: press 'a' = first key
-  const mapping = {
-    "a": 0, "w": 1, "s": 2, "e": 3, "d": 4,
-    "f": 5, "t": 6, "g": 7, "y": 8, "h": 9,
-    "u": 10, "j": 11, "k": 12, "l": 13, "m": 14,
-  };
-  const index = mapping[e.key];
-  if (index !== undefined) playTune(index);
-});

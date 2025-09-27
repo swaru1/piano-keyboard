@@ -1,55 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Piano</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <main>
-        <div id="keyboard">
-            <div class="key white"> <span>c</span></div>
-            <div class="key black"> <span>c#</span></div>
-            <div class="key white"> <span>d</span></div>
-            <div class="key black"> <span>d#</span></div>
-            <div class="key white"> <span>e</span></div>
-            <div class="key white"> <span>f</span></div>
-            <div class="key black"> <span>f#</span></div>
-            <div class="key white"> <span>g</span></div>
-            <div class="key black"> <span>g#</span></div>
-            <div class="key white"> <span>a</span></div>
-            <div class="key black"> <span>a#</span></div>
-            <div class="key white"> <span>b</span></div>
-            <div class="key white"> <span>c</span></div>
-            <div class="key black"> <span>c#</span></div>
-            <div class="key white"> <span>d</span></div>
-            <div class="key black"> <span>d#</span></div>
-            <div class="key white"> <span>e</span></div>
-            <div class="key white"> <span>f</span></div>
-            <div class="key black"> <span>f#</span></div>
-            <div class="key white"> <span>g</span></div>
-            <div class="key black"> <span>g#</span></div>
-            <div class="key white"> <span>a</span></div>
-            <div class="key black"> <span>a#</span></div>
-            <div class="key white"> <span>b</span></div>
-            <div class="key white"> <span>c</span></div>
-            <div class="key black"> <span>c#</span></div>
-            <div class="key white"> <span>d</span></div>
-            <div class="key black"> <span>d#</span></div>
-            <div class="key white"> <span>e</span></div>
-            <div class="key white"> <span>f</span></div>
-            <div class="key black"> <span>f#</span></div>
-            <div class="key white"> <span>g</span></div>
-            <div class="key black"> <span>g#</span></div>
-            <div class="key white"> <span>a</span></div>
-            <div class="key black"> <span>a#</span></div>
-            <div class="key white"> <span>b</span></div>
-        </div>
+      <div id="keyboard">
+        <div data-note="C1" class="key white"><span>c</span></div>
+        <div data-note="Db1" class="key black"><span>c#</span></div>
+        <div data-note="D1" class="key white"><span>d</span></div>
+        <div data-note="Eb1" class="key black"><span>d#</span></div>
+        <div data-note="E1" class="key white"><span>e</span></div>
+        <div data-note="F1" class="key white"><span>f</span></div>
+        <div data-note="Gb1" class="key black"><span>f#</span></div>
+        <div data-note="G1" class="key white"><span>g</span></div>
+        <div data-note="Ab1" class="key black"><span>g#</span></div>
+        <div data-note="A1" class="key white"><span>a</span></div>
+        <div data-note="Bb1" class="key black"><span>a#</span></div>
+        <div data-note="B1" class="key white"><span>b</span></div>
 
+        <div data-note="C2" class="key white"><span>c</span></div>
+        <div data-note="Db2" class="key black"><span>c#</span></div>
+        <div data-note="D2" class="key white"><span>d</span></div>
+        <div data-note="Eb2" class="key black"><span>d#</span></div>
+        <div data-note="E2" class="key white"><span>e</span></div>
+        <div data-note="F2" class="key white"><span>f</span></div>
+        <div data-note="Gb2" class="key black"><span>f#</span></div>
+        <div data-note="G2" class="key white"><span>g</span></div>
+        <div data-note="Ab2" class="key black"><span>g#</span></div>
+        <div data-note="A2" class="key white"><span>a</span></div>
+        <div data-note="Bb2" class="key black"><span>a#</span></div>
+        <div data-note="B2" class="key white"><span>b</span></div>
+
+        <div data-note="C3" class="key white"><span>c</span></div>
+        <div data-note="Db3" class="key black"><span>c#</span></div>
+        <div data-note="D3" class="key white"><span>d</span></div>
+        <div data-note="Eb3" class="key black"><span>d#</span></div>
+        <div data-note="E3" class="key white"><span>e</span></div>
+        <div data-note="F3" class="key white"><span>f</span></div>
+        <div data-note="Gb3" class="key black"><span>f#</span></div>
+        <div data-note="G3" class="key white"><span>g</span></div>
+        <div data-note="Ab3" class="key black"><span>g#</span></div>
+        <div data-note="A3" class="key white"><span>a</span></div>
+        <div data-note="Bb3" class="key black"><span>a#</span></div>
+        <div data-note="B3" class="key white"><span>b</span></div>
+      </div>
+
+      <audio id="C1" src="tunes/C1.mp3"></audio>
+      <audio id="Db1" src="tunes/Db1.mp3"></audio>
+      <audio id="D1" src="tunes/D1.mp3"></audio>
+      <audio id="Eb1" src="tunes/Eb1.mp3"></audio>
+      <audio id="E1" src="tunes/E1.mp3"></audio>
+      <audio id="F1" src="tunes/F1.mp3"></audio>
+      <audio id="Gb1" src="tunes/Gb1.mp3"></audio>
+      <audio id="G1" src="tunes/G1.mp3"></audio>
+      <audio id="Ab1" src="tunes/Ab1.mp3"></audio>
+      <audio id="A1" src="tunes/A1.mp3"></audio>
+      <audio id="Bb1" src="tunes/Bb1.mp3"></audio>
+      <audio id="B1" src="tunes/B1.mp3"></audio>
+
+      <audio id="C2" src="tunes/C2.mp3"></audio>
+      <audio id="Db2" src="tunes/Db2.mp3"></audio>
+      <audio id="D2" src="tunes/D2.mp3"></audio>
+      <audio id="Eb2" src="tunes/Eb2.mp3"></audio>
+      <audio id="E2" src="tunes/E2.mp3"></audio>
+      <audio id="F2" src="tunes/F2.mp3"></audio>
+      <audio id="Gb2" src="tunes/Gb2.mp3"></audio>
+      <audio id="G2" src="tunes/G2.mp3"></audio>
+      <audio id="Ab2" src="tunes/Ab2.mp3"></audio>
+      <audio id="A2" src="tunes/A2.mp3"></audio>
+      <audio id="Bb2" src="tunes/Bb2.mp3"></audio>
+      <audio id="B2" src="tunes/B2.mp3"></audio>
+
+      <audio id="C3" src="tunes/C3.mp3"></audio>
+      <audio id="Db3" src="tunes/Db3.mp3"></audio>
+      <audio id="D3" src="tunes/D3.mp3"></audio>
+      <audio id="Eb3" src="tunes/Eb3.mp3"></audio>
+      <audio id="E3" src="tunes/E3.mp3"></audio>
+      <audio id="F3" src="tunes/F3.mp3"></audio>
+      <audio id="Gb3" src="tunes/Gb3.mp3"></audio>
+      <audio id="G3" src="tunes/G3.mp3"></audio>
+      <audio id="Ab3" src="tunes/Ab3.mp3"></audio>
+      <audio id="A3" src="tunes/A3.mp3"></audio>
+      <audio id="Bb3" src="tunes/Bb3.mp3"></audio>
+      <audio id="B3" src="tunes/B3.mp3"></audio>
     </main>
-    
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
